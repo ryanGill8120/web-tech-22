@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="./assets/css/bootstrap.css">
+        <link rel="stylesheet" href="./assets/css/calculator.css">
+        <script src="./assets/js/calculator.js"></script>
+    </head>
+    <body>
+        <div class="calculator_container">
+            <div class="container">
+                <div class="form-group">
+                    <label>First Number:</label>
+                    <input class="form-control" type="text" id="num1" onblur="handleErrors();" onfocus="clearDocument();">
+                    <p class="help-block" id="num1Help"></p>
+                </div>
+                <div class="form-group">
+                    <label>Second Number:</label>
+                    <input class="form-control" type="text" id="num2" onblur="handleErrors();" onfocus="clearDocument();" onchange="handleErrors();">
+                    <p class="help-block" id="num2Help"></p>
+                </div>
+                <div class="form-group">
+                    <label>Function:</label>
+                    <select id="funct" name="funct"  onblur="handleErrors();" onfocus="clearDocument();" onchange="handleErrors();">
+                        <option value="add">Add</option>
+                        <option value="subtract">Subtract</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                    </select>
+                </div>
+                <button id="submit" class="btn btn-block btn-success" type="submit" onclick="calculate();">Calculate</button>
+                <div>
+                    <h3 id="answer"></h3>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
