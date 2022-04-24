@@ -94,7 +94,7 @@
             echo '<div class="form-group has-error" id="lastNameDiv">';
             echo   '<label class="control-label" for="lastName">Last Name</label>';
             echo   '<input class="form-control" type="text" id="lastName" name="lname" onblur="handleErrors();">';
-            echo   '<p class="help-block" id="lastNameHelp">Invalid Input!</p>';
+            echo   '<p class="help-block" id="lastNameHelp">Cannot be blank!</p>';
             echo '</div>';
 
         }else{
@@ -111,7 +111,7 @@
             echo '<div class="form-group has-error" id="lastNameDiv">';
             echo   '<label class="control-label" for="lastName">Last Name</label>';
             echo   '<input class="form-control" type="text" id="lastName" name="lname" onblur="handleErrors();">';
-            echo   '<p class="help-block" id="lastNameHelp">Invalid Input!</p>';
+            echo   '<p class="help-block" id="lastNameHelp">Cannot be blank!</p>';
             echo '</div>';
 
         }else {
@@ -219,7 +219,7 @@
             echo '<div class="form-group has-error" id="birthdayDiv">';
             echo   '<label class="control-label" for="birthday">Date of Birth</label>';
             echo   '<input class="form-control" type="text" id="birthday" name="birthday" onblur="handleErrors();" value="'.$_SESSION['birthday'].'">';
-            echo   '<p class="help-block" id="birthdayHelp"></p>';
+            echo   '<p class="help-block" id="birthdayHelp">Invalid Input!</p>';
             echo '</div>';
         }else if (isset($_GET['err']) && strstr($_GET['err'], "birthdayNull")){
             //empty input
@@ -352,13 +352,6 @@
         $db_link = db_iconnect("contact_form");
         $sql = "INSERT into `contact_entries` (`first_name`, `last_name`, `phone`, `email`, `birthday`, `contact_method`, `comment`) VALUES ('$firstName', '$lastName', '$phone', '$email', '$birthday', '$contactRadio', '$comment')";
 
-        /*
-        echo "<div>First Name: $firstName</div>";
-        echo "<div>Last Name: $lastName</div>";
-        echo "<div>Email: $email</div>";
-        echo "<div>Phone: $phone</div>";
-        echo "<div>Contact Method: $contactRadio</div>";
-        echo "<div>Comment: $comment</div>";*/
         $db_link->query($sql) or die("Something went wrong with $sql <br>".$db_link->error);
         redirect("index.php?page=contact&msg=success");
 
